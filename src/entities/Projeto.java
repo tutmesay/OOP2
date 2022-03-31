@@ -1,6 +1,7 @@
 package entities;
 
-import java.sql.Date;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -11,7 +12,8 @@ public class Projeto {
 	private Date dt_Termino;
 	private List<Contratacao> listContratacao = new ArrayList<>();
 
-	
+	SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+
 
 	public Projeto(String nome, Date dt_Inicio, Date dt_Termino) {
 		super();
@@ -76,6 +78,46 @@ public class Projeto {
 	public String toString() {
 		return "Projeto [nome=" + nome + ", dt_Inicio=" + dt_Inicio + ", dt_Termino=" + dt_Termino
 				+ ", listContratacao=" + listContratacao + "]";
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Date getDt_Inicio() {
+		return dt_Inicio;
+	}
+
+	public void setDt_Inicio(Date dt_Inicio) {
+		this.dt_Inicio = dt_Inicio;
+	}
+
+	public Date getDt_Termino() {
+		return dt_Termino;
+	}
+
+	public void setDt_Termino(Date dt_Termino) {
+		this.dt_Termino = dt_Termino;
+	}
+
+	public List<Contratacao> getListContratacao() {
+		return listContratacao;
+	}
+
+	public void setListContratacao(List<Contratacao> listContratacao) {
+		this.listContratacao = listContratacao;
+	}
+
+	public SimpleDateFormat getDf() {
+		return df;
+	}
+
+	public void setDf(SimpleDateFormat df) {
+		this.df = df;
 	}
 
 

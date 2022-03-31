@@ -1,5 +1,6 @@
 package application;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import entities.Contratacao;
@@ -10,11 +11,7 @@ import entities.enums.TipoDeDocumento;
 
 public class Program {
 
-	public static void main(String[] args) {
-		
-		
-		
-
+	public static void main(String[] args) throws ParseException {
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		Projeto p1 = new Projeto("Construcao da loja", df.parse("01/01/2020"), df.parse("31/12/2021"));
 		Funcionario f1 = new Funcionario("Dory", TipoDeDocumento.CPF, "999.999.999-00");

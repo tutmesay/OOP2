@@ -1,6 +1,6 @@
 package entities;
 
-import java.sql.Date;
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,13 +17,11 @@ public class Contratacao {
 
 	SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
-	public Contratacao(Date datal, CargoType cargoType, StatusType statusTyoeStatusType, Funcionario funcionario, Projeto projeto) {
+	public Contratacao(Date datal, CargoType cargoType, Funcionario funcionario, Projeto projeto) {
 		this.datal = datal;
 		this.cargoType = cargoType;
-		this.statusTyoeStatusType = statusTyoeStatusType;
 		this.funcionario = funcionario;
 		this.projeto = projeto;
-		this.projeto.adicionarContratacao(this);
 		this.pendente();
 	}
 
@@ -36,8 +34,7 @@ public class Contratacao {
 	public void contratar() {	
 		if(statusTyoeStatusType == StatusType.PENDENTE) {
 			statusTyoeStatusType = StatusType.CONTRATADO;
-		}else {
-			statusTyoeStatusType = StatusType.CONTRATADO;
+			this.projeto.adicionarContratacao(this);
 		}
 	}
 
@@ -96,6 +93,14 @@ public class Contratacao {
 	public void setStatusTyoeStatusType(StatusType statusTyoeStatusType) {
 		this.statusTyoeStatusType = statusTyoeStatusType;
 	}
+
+	@Override
+	public String toString() {
+		return "Contratacao [datal=" + df.format(datal) + ", cargoType=" + cargoType + ", statusTyoeStatusType="
+				+ statusTyoeStatusType + ", funcionario=" + funcionario.getNome() + ", projeto=" + projeto.getNome() + ", df=" + df + "]";
+	}
+
+
 
 
 }
